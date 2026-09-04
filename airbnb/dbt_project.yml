@@ -31,3 +31,7 @@ models:
   airbnb:
     # This config will be applied to all models in the example/ directory
     +materialized: view
+    dim:
+      +materialized: table
+    src:
+      +materialized: ephemeral
