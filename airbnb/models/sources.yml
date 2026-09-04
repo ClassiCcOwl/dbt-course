@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: airbnb
+    description: "This is the source for Airbnb data."
+    schema: raw
+    tables:
+      - name: listings
+        description: "This table contains information about Airbnb listings."
+        identifier: raw_listings
+      - name: reviews
+        description: "This table contains reviews for Airbnb listings."
+        identifier: raw_reviews
+        config:
+          loaded_at_field: date
+          freshness:
+            warn_after: { count: 1, period: hour }
+            error_after: { count: 24, period: hour }
+      - name: hosts
+        description: "This table contains information about Airbnb hosts."
+        identifier: raw_hosts
