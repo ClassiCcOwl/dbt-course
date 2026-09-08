@@ -1,0 +1,10 @@
+snapshots:
+  - name: scd_raw_hosts
+    description: "This snapshot captures the state of the raw_hosts table over time, allowing for historical analysis."
+    relation: source('airbnb', 'hosts')
+    config:
+      unique_key: id
+      updated_at: updated_at
+      materialized: snapshot
+      strategy: timestamp
+      hard_deletes: invalidate
