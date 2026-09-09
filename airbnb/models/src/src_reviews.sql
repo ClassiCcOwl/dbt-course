@@ -1,10 +1,12 @@
-WITH
-    raw_review AS (
-        SELECT
-            *
-        FROM
-            {{ source('airbnb', 'reviews') }}
-    )
+WITH raw_review AS (
+    SELECT
+        *
+    FROM
+        {{ source(
+            'airbnb',
+            'reviews'
+        ) }}
+)
 SELECT
     listing_id,
     DATE AS review_date,
