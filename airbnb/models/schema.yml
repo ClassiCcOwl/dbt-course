@@ -1,5 +1,6 @@
 models:
   - name: dim_listings_cleansed
+    description: Cleansed table which cointains Airbnb listings
     data_tests:
       - minimum_row_count:
           arguments:
@@ -40,7 +41,7 @@ models:
   - name: dim_hosts_cleansed
     config:
       contract:
-        enabled: true
+        enforced: true
     columns:
       - name: host_id
         description: "The unique identifier for each host."
