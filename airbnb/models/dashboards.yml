@@ -1,0 +1,14 @@
+exposures:
+  - name: executive_dashboard
+    label: Executive Dashboard
+    maturity: low
+    depends_on:
+      - ref('dim_listings_w_hosts')
+      - ref('mart_fullmoon_reviews')
+
+    url: ""
+    owner:
+      name: Mohammad Khavari
+      email: khavari.mkh@gmail.com
+
+    type: dashboard
