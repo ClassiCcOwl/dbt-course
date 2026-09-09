@@ -1,5 +1,3 @@
-version: 2
-
 sources:
   - name: airbnb
     description: "This is the source for Airbnb data."
