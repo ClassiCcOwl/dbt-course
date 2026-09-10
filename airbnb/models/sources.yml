@@ -6,6 +6,13 @@ sources:
       - name: listings
         description: "This table contains information about Airbnb listings."
         identifier: raw_listings
+        columns:
+          - name: room_type
+            data_tests:
+              - dbt_expectations.expect_column_distinct_count_to_equal:
+                  arguments:
+                    value: 4
+
       - name: reviews
         description: "This table contains reviews for Airbnb listings."
         identifier: raw_reviews
