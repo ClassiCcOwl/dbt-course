@@ -1,6 +1,7 @@
 {{ config(
     materialized = 'incremental',
     on_schema_change = 'fail',
+    event_time = 'review_date',
 ) }}
 
 WITH src_reviews AS (
@@ -25,10 +26,10 @@ WHERE
         'end_date',
         False
     ) %}
-    {% log(
+    {{ log(
         'Loading' ~ this ~ ' incrementally (start_date: ' ~ var('start_date') ~ ', end_date: ' ~ var('end_date') ~ ')',
         info = True
-    ) %}
+    ) }}
     AND review_date BETWEEN '{{ var(' start_date ') }}'
     AND '{{ var(' end_date ') }}'
 {% else %}
@@ -37,9 +38,9 @@ WHERE
             MAX(review_date)
         FROM
             {{ this }}
-    ) {% log(
+    ) {{ log(
         'Loading' ~ this ~ ' incrementally (all missing dates)',
         info = True
-    ) %}
+    ) }}
 {% endif %}
 {% endif %}
