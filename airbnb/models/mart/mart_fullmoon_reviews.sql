@@ -1,5 +1,9 @@
 {{ config(
-    materialized = 'table'
+    materialized = 'incremental',
+    event_time = 'review_date',
+    incremental_strategy = 'microbatch',
+    begin = '2009-06-20',
+    batch_size = 'year',
 ) }}
 
 WITH fct_reviews AS (
