@@ -42,7 +42,7 @@ models:
     versions:
       - v: 1
         defined_in: dim_hosts_cleansed
-        deprecation_date: "2026-09-11"
+        deprecation_date: "2100-09-11"
       - v: 2
         defined_in: dim_hosts_cleansed_v2
         columns:
